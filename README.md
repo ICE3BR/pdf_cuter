@@ -188,14 +188,27 @@ Build removendo as saídas anteriores:
 .\build.ps1 -Clean
 ```
 
-O executável será criado em:
+O executável único será criado em:
+
+```text
+dist/PDF-Cuter.exe
+```
+
+O build usa `--onefile` e `--windowed`: o cliente recebe apenas um arquivo
+`.exe`, sem precisar transportar uma pasta adicional. Os recursos necessários
+do `tkinterdnd2` são incorporados ao executável.
+
+### Voltar para o formato onedir
+
+Se no futuro for necessário distribuir uma pasta com o executável e seus
+arquivos internos, remova a opção `--onefile` do `build.ps1`. Nesse formato, o
+resultado será gerado em:
 
 ```text
 dist/PDF-Cuter/PDF-Cuter.exe
 ```
 
-O build usa modo `--windowed`, portanto o executável não abre uma janela de
-console, e inclui os recursos necessários do `tkinterdnd2`.
+Nesse caso, a pasta `dist/PDF-Cuter/` deverá ser enviada completa ao cliente.
 
 Se o PowerShell bloquear a execução do script por política local, execute a
 permissão apenas para a sessão atual:

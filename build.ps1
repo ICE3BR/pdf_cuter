@@ -39,6 +39,7 @@ try {
         --noconfirm `
         --clean `
         --windowed `
+        --onefile `
         --name $outputName `
         --collect-all tkinterdnd2 `
         main.py
@@ -46,7 +47,7 @@ try {
         throw "Falha ao compilar o executável."
     }
 
-    $executablePath = Join-Path $projectRoot "dist\$outputName\$outputName.exe"
+    $executablePath = Join-Path $projectRoot "dist\$outputName.exe"
     if (-not (Test-Path -LiteralPath $executablePath)) {
         throw "A compilação terminou, mas o executável não foi encontrado em: $executablePath"
     }
